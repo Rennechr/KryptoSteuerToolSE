@@ -16,5 +16,12 @@ namespace KryptoSteuernTool
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Wallet wallet = new Wallet("Binance");
+            Asset asset = new Asset("XCH", 302);
+            wallet.reciveAsset(asset);
+        }
     }
 }
