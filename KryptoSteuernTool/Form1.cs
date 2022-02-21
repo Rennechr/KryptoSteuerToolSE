@@ -19,9 +19,18 @@ namespace KryptoSteuernTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Wallet wallet = new Wallet("Binance");
-            Asset asset = new Asset("XCH", 302);
-            wallet.reciveAsset(asset);
+
+            User user = new User("Peter");
+            user.addWallet("Peters Binance");
+            user.deposit("Peters Binance", "XCH", 300);
+
+            user.wallets.Where(x=>x.name == "Peters Binance").First().reciveAsset("XCH", 100);
+
+            user.wallets.Where(x => x.name == "Peters Binance").First().reciveAsset("BTC", 1);
+
+            user.wallets.Where(x => x.name == "Peters Binance").First().reciveAsset("BTC", -0.5m);
+
+            user.withdrawl("Peters Binance", "XCH", 300);
         }
     }
 }

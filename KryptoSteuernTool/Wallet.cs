@@ -26,9 +26,33 @@ namespace KryptoSteuernTool
             APISecret = APISecretKey;
         }
 
-        public void reciveAsset(Asset asset)
+        public void reciveAsset(string assetName)
         {
-            Console.WriteLine(assets.Where(item => item.kuerzel == asset.kuerzel));
+            if(!assetExists(assetName))
+            {
+                assets.Add(new Asset(assetName));
+            }
+            else
+            {
+                //do nothing
+            }
+        }
+
+        public void reciveAsset(string assetName, decimal amountNumber)
+        {
+            if (!assetExists(assetName))
+            {
+                assets.Add(new Asset(assetName, amountNumber));
+            }
+            else
+            {
+                assets.Where(item => item.kuerzel == assetName).First().changeAmount(amountNumber);
+            }
+        }
+
+        public bool assetExists(string assetName)
+        {
+            return assets.Where(item => item.kuerzel == assetName).Count() == 0 ? false : true;
         }
     }
 }

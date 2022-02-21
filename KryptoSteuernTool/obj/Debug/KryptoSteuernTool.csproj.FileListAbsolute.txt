@@ -1,0 +1,11 @@
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\bin\Debug\KryptoSteuernTool.exe.config
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\bin\Debug\KryptoSteuernTool.exe
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\bin\Debug\KryptoSteuernTool.pdb
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.csproj.AssemblyReference.cache
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.csproj.SuggestedBindingRedirects.cache
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.Form1.resources
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.Properties.Resources.resources
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.csproj.GenerateResource.cache
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.csproj.CoreCompileInputs.cache
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.exe
+C:\Users\Chris\source\repos\KryptoSteuernTool\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.pdb

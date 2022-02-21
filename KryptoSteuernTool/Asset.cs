@@ -28,8 +28,5 @@ namespace KryptoSteuernTool
             amount += amountNumber;
             return amount;
         }
-
-
-
     }
 }
