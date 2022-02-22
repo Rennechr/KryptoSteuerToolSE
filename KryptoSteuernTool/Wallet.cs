@@ -8,24 +8,24 @@ namespace KryptoSteuernTool
 {
     internal class Wallet
     {
-        private string APIPublic;
-        private string APISecret;
+        public string name { get; set; }
+        public List<Asset> assets { get; set; }
 
-        public string name;
-        public List<Asset> assets = new List<Asset>();
-
+        public Wallet(string newName, List<Asset> newAssets)
+        {
+            assets = newAssets;
+            name = newName;
+        }
         public Wallet(string newName)
         {
+            assets = new List<Asset>();
             name = newName;
         }
 
-        Wallet(string newName, string APIPublickey, string APISecretKey)
+        public Wallet()
         {
-            name = newName;
-            APIPublic = APIPublickey;
-            APISecret = APISecretKey;
+            assets = new List<Asset>();
         }
-
         public void reciveAsset(string assetName)
         {
             if(!assetExists(assetName))

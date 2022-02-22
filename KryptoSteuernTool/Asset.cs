@@ -8,8 +8,8 @@ namespace KryptoSteuernTool
 {
     internal class Asset
     {
-        public string kuerzel;
-        public decimal amount;
+        public string kuerzel { get; set; }
+        public decimal amount { get; set; }
 
         public Asset(string kuerzelName)
         {

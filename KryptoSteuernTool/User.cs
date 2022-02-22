@@ -8,11 +8,25 @@ namespace KryptoSteuernTool
 {
     internal class User
     {
-        public string username;
-        public List<Wallet> wallets = new List<Wallet>();
+        public string username { get; set; }
+        public List<Wallet> wallets { get; set; }
 
+        public User()
+        {
+            wallets = new List<Wallet>();
+        }
+
+
+        public User(string newUsername, List<Wallet> newWallets)
+        {
+            wallets = newWallets;
+            username = newUsername;
+        }
+       
         public User(string newUsername)
         {
+
+            wallets = new List<Wallet>();
             username = newUsername;
         }
 
