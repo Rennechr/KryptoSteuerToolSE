@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Text.Json;
+using System.Windows.Forms;
 
 namespace KryptoSteuernTool
 {
@@ -10,7 +8,6 @@ namespace KryptoSteuernTool
     {
         public Saver()
         {
-
         }
         public void save(User user)
         {
@@ -32,6 +29,6 @@ namespace KryptoSteuernTool
                     myStream.Close();
                 }
             }
-        }        
+        }
     }
 }

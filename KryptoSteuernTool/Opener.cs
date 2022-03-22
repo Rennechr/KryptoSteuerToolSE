@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Text.Json;
+using System.Windows.Forms;
 
 namespace KryptoSteuernTool
 {
@@ -10,8 +8,8 @@ namespace KryptoSteuernTool
     {
         public Opener()
         {
-
         }
+
         public User open()
         {
             string fileContent = string.Empty;
@@ -41,9 +39,12 @@ namespace KryptoSteuernTool
                     };
 
                     var result = JsonSerializer.Deserialize<User>(fileContent, options);
-                    return result;
+                    MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+
                 }
             }
+
+            return new User();
         }
     }
 }

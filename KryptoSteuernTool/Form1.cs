@@ -46,7 +46,7 @@ namespace KryptoSteuernTool
         private void saveBtn_Click(object sender, EventArgs e)
         {
             Saver saver = new Saver();
-            saver.Save(user);
+            saver.save(user);
         }
 
         private void btnWalletAdd_Click(object sender, EventArgs e)
