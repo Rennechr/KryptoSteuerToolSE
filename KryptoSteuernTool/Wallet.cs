@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KryptoSteuernTool
 {
-    internal class Wallet
+    public partial class Wallet
     {
         public string name { get; set; }
         public List<Asset> assets { get; set; }

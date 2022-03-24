@@ -15,7 +15,7 @@ namespace KryptoSteuernTool
 {
     public partial class Form1 : Form
     {
-        User user { get; set; }
+        public User user { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -51,7 +51,10 @@ namespace KryptoSteuernTool
 
         private void btnWalletAdd_Click(object sender, EventArgs e)
         {
-            if(user == null) {
+            AddWalletDialog addWalletDialog = new AddWalletDialog();
+            addWalletDialog.ShowDialog();
+            if (user == null)
+            {
                 user = new User();
             }
             user.addWallet("Peters Binance");

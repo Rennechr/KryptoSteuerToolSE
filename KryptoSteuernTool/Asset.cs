@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KryptoSteuernTool
 {
-    internal class Asset
+    public partial class Asset
     {
         public string kuerzel { get; set; }
         public decimal amount { get; set; }
