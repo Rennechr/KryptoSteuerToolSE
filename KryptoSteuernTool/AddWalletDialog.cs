@@ -23,13 +23,24 @@ namespace KryptoSteuernTool
             string[] rules = {"required","singleRadioSelected"};
             if (validator.check(rules, textBoxName, groupBoxTransactionImport))
             {
-               
+                if (Form1.user == null)
+                {
+                    Form1.user = new User();
+                }
+                Form1.user.addWallet(textBoxName.Text);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Validation Error");
 
             }
+        }
+
+        private void buttonAbort_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

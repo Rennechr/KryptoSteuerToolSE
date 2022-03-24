@@ -70,13 +70,11 @@
             // 
             // radioButtonCSVImport
             // 
-            this.radioButtonCSVImport.AutoSize = true;
             this.radioButtonCSVImport.Location = new System.Drawing.Point(6, 55);
             this.radioButtonCSVImport.Name = "radioButtonCSVImport";
-            this.radioButtonCSVImport.Size = new System.Drawing.Size(212, 24);
+            this.radioButtonCSVImport.Size = new System.Drawing.Size(218, 24);
             this.radioButtonCSVImport.TabIndex = 4;
-            this.radioButtonCSVImport.Text = "CSV Import Transactions";
-            this.radioButtonCSVImport.UseVisualStyleBackColor = true;
+            this.radioButtonCSVImport.Text = "Add CSV Transactions";
             // 
             // radioButtonAPISync
             // 
@@ -112,6 +110,7 @@
             this.buttonAbort.TabIndex = 8;
             this.buttonAbort.Text = "Abort";
             this.buttonAbort.UseVisualStyleBackColor = true;
+            this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 
             // groupBoxTransactionImport
             // 
