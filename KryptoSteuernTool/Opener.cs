@@ -10,10 +10,11 @@ namespace KryptoSteuernTool
         {
         }
 
-        public User open()
+        public Saveable open()
         {
             string fileContent = string.Empty;
             var filePath = string.Empty;
+            
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -38,13 +39,12 @@ namespace KryptoSteuernTool
                         PropertyNameCaseInsensitive = true,
                     };
 
-                    var result = JsonSerializer.Deserialize<User>(fileContent, options);
+                    var result = JsonSerializer.Deserialize<Saveable>(fileContent, options);
                     MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-
+                    return (Saveable) result;
                 }
             }
-
-            return new User();
+            return new Saveable();
         }
     }
 }

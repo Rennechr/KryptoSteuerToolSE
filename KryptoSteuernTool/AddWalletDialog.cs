@@ -12,6 +12,7 @@ namespace KryptoSteuernTool
 {
     public partial class AddWalletDialog : Form
     {
+        public Panel txPanel;
         public AddWalletDialog()
         {
             InitializeComponent();
@@ -20,8 +21,8 @@ namespace KryptoSteuernTool
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Validator validator = new Validator();
-            string[] rules = {"required","singleRadioSelected"};
-            if (validator.check(rules, textBoxName, groupBoxTransactionImport))
+            string[] rules = {"required"};
+            if (validator.check(rules, textBoxName))
             {
                 if (Form1.user == null)
                 {
@@ -41,6 +42,12 @@ namespace KryptoSteuernTool
         private void buttonAbort_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        
+        private void AddWalletDialog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

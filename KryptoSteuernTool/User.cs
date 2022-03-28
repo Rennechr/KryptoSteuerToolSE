@@ -10,6 +10,7 @@ namespace KryptoSteuernTool
     {
         public string username { get; set; }
         public List<Wallet> wallets { get; set; }
+        public List<Transaction> transactions { get; set; }
 
         public User()
         {

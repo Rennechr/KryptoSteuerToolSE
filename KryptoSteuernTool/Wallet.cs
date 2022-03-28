@@ -9,6 +9,8 @@ namespace KryptoSteuernTool
     public partial class Wallet
     {
         public string name { get; set; }
+
+        public string address { get; set; }
         public List<Asset> assets { get; set; }
 
         public Wallet(string newName, List<Asset> newAssets)

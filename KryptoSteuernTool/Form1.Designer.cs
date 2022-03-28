@@ -114,7 +114,7 @@
             // groupBoxDashboard
             // 
             this.groupBoxDashboard.Controls.Add(this.groupBoxWallets);
-            this.groupBoxDashboard.Location = new System.Drawing.Point(931, 66);
+            this.groupBoxDashboard.Location = new System.Drawing.Point(991, 66);
             this.groupBoxDashboard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxDashboard.Name = "groupBoxDashboard";
             this.groupBoxDashboard.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -147,11 +147,11 @@
             // 
             // groupBoxTransactions
             // 
-            this.groupBoxTransactions.Location = new System.Drawing.Point(638, 66);
+            this.groupBoxTransactions.Location = new System.Drawing.Point(591, 66);
             this.groupBoxTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxTransactions.Name = "groupBoxTransactions";
             this.groupBoxTransactions.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBoxTransactions.Size = new System.Drawing.Size(272, 265);
+            this.groupBoxTransactions.Size = new System.Drawing.Size(394, 265);
             this.groupBoxTransactions.TabIndex = 8;
             this.groupBoxTransactions.TabStop = false;
             this.groupBoxTransactions.Text = "Transactions";
