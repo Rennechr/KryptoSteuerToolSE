@@ -65,3 +65,4 @@ C:\Users\Caro\Source\Repos\KryptoSteuerToolSE\KryptoSteuernTool\obj\Debug\Krypto
 C:\Users\Caro\Source\Repos\KryptoSteuerToolSE\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.exe
 C:\Users\Caro\Source\Repos\KryptoSteuerToolSE\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.pdb
 C:\Users\Caro\source\repos\KryptoSteuerToolSE\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.AddWalletDialog.resources
+C:\Users\Caro\source\repos\KryptoSteuerToolSE\KryptoSteuernTool\obj\Debug\KryptoSteuernTool.ComboItem.resources

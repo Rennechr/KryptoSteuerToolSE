@@ -5,17 +5,12 @@ using System.Windows.Forms;
 
 namespace KryptoSteuernTool
 {
-    public struct Saveable
-    {
-        public User user;
-        public List<Transaction> transactions;
-    }
     internal class Saver
     {
         public Saver()
         {
         }
-        public void save(User user, List<Transaction> transactions)
+        public void save(User user)
         {
             Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -30,10 +25,7 @@ namespace KryptoSteuernTool
                 {
                     using (StreamWriter writer = new StreamWriter(myStream))
                     {
-                        Saveable saveable = new Saveable();
-                        saveable.user = user;
-                        saveable.transactions = transactions;
-                        writer.Write(JsonSerializer.Serialize<Saveable>(saveable));
+                        writer.Write(JsonSerializer.Serialize<User>(user));
                     }
                     myStream.Close();
                 }

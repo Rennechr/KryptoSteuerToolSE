@@ -8,9 +8,10 @@ namespace KryptoSteuernTool
     {
         public Opener()
         {
+
         }
 
-        public Saveable open()
+        public User open()
         {
             string fileContent = string.Empty;
             var filePath = string.Empty;
@@ -39,12 +40,12 @@ namespace KryptoSteuernTool
                         PropertyNameCaseInsensitive = true,
                     };
 
-                    var result = JsonSerializer.Deserialize<Saveable>(fileContent, options);
+                    User result = JsonSerializer.Deserialize<User>(fileContent, options);
                     MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    return (Saveable) result;
+                    return (User) result;
                 }
             }
-            return new Saveable();
+            return new User();
         }
     }
 }

@@ -17,7 +17,6 @@ namespace KryptoSteuernTool
     public partial class Form1 : Form
     {
         public static User user { get; set; }
-        public List<Transaction> transactions { get; set; }
 
         List<Label> walletNames = new List<Label>();
         List<Button> walletButtons = new List<Button>();
@@ -46,18 +45,15 @@ namespace KryptoSteuernTool
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            Saveable saveable = new Saveable();
             Opener opener = new Opener();
-            saveable = opener.open();
-            user = saveable.user;
-            transactions= saveable.transactions;
+            user = opener.open();
             updateWalletList();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
             Saver saver = new Saver();
-            saver.save(user, transactions);
+            saver.save(user);
         }
 
         private void btnWalletAdd_Click(object sender, EventArgs e)
@@ -78,6 +74,7 @@ namespace KryptoSteuernTool
             int i = 0;
             foreach(Wallet wallet in user.wallets)
             {
+                int local_i = i;
                 walletNames.Add(new Label());
                 walletNames.Last().Text = wallet.name;
                 walletNames.Last().AutoSize = true;
@@ -87,7 +84,7 @@ namespace KryptoSteuernTool
                 walletButtons.Last().Text = "Show";
                 walletButtons.Last().AutoSize = true;
                 walletButtons.Last().Location = new Point(120, 30 * i + 20);
-                walletButtons.Last().Click += (sender, e) => showWallet(sender, e, i);
+                walletButtons.Last().Click += (sender, e) => showWallet(sender, e, local_i);
                 groupBox1.Controls.Add(walletButtons.Last());
                 groupBox1.Controls.Add(walletNames.Last());
 
@@ -96,7 +93,7 @@ namespace KryptoSteuernTool
         }
         void showWallet(object sender, EventArgs e, int i)
         {
-            i = i - 1;
+            groupBoxTransactions.Controls.Clear();
             int count = 0;
             if(user.wallets.ElementAt(i).assets.Count() == 0)
             {
@@ -111,14 +108,14 @@ namespace KryptoSteuernTool
                 foreach (Asset asset in user.wallets.ElementAt(i).assets)
                 {
                     assetName.Add(new Label());
-                    assetName.Last().Text = asset.kuerzel;
+                    assetName.Last().Text = asset.kuerzel + " | " +  asset.amount.ToString();
                     assetName.Last().AutoSize = true;
                     assetName.Last().Location = new Point(20, 30 * count + 60);
                     groupBoxTransactions.Controls.Add(assetName.Last());
                     count++;
                 }
             }
-            if(transactions != null)
+            if(user.transactions.Count()>0)
             {
                 Button btn = new Button();
                 btn.Text = "Transaktionen Anzeigen";
@@ -127,7 +124,18 @@ namespace KryptoSteuernTool
                 groupBoxTransactions.Controls.Add(btn);
                 btn.Click += (sender2, e2) => showTransactions(sender, e, i);
             }
+            Button btnAddTx = new Button();
+            btnAddTx.Text = "Transaktionen Hinzufügen";
+            btnAddTx.Location = new Point(20, 80+30*count);
+            btnAddTx.AutoSize = true;
+            groupBoxTransactions.Controls.Add(btnAddTx);
+            btnAddTx.Click += (sender2, e2) => addTransactions(sender, e, i);
             //add new Form To show Wallet Specific stuff
+        }
+        void addTransactions(object sender, EventArgs e, int i)
+        {
+            AddTransactionsDialog addTransactionsDialog = new AddTransactionsDialog();  
+            addTransactionsDialog.ShowDialog();
         }
         void showTransactions(object sender, EventArgs e, int i)
         {
@@ -146,14 +154,13 @@ namespace KryptoSteuernTool
 
                     count++;
                 }
-                else if (transaction.send.walletFrom == wallet || transaction.send.walletTo == wallet)
+                else if (transaction.send.walletFrom == wallet.name || transaction.send.walletTo == wallet.name)
                 {
                     Label label = new Label();
-                    label.Text = "Send " + transaction.send.asset.ToString() + " from " + transaction.send.walletFrom.ToString() + " to " + transaction.send.walletTo.ToString();
+                    label.Text = "Send " + transaction.send.asset.amount + " " + transaction.send.asset.kuerzel + " from " + transaction.send.walletFrom.ToString() + " to " + transaction.send.walletTo.ToString();
                     label.Location = new Point(20, 30 * count + 30);
                     label.AutoSize = true;
                     groupBoxTransactions.Controls.Add(label);
-
                     count++;
                 }
                 else

@@ -23,6 +23,11 @@ namespace KryptoSteuernTool
             amount = amountNumber;
         }
 
+        public Asset()
+        {
+
+        }
+
         public decimal changeAmount(decimal amountNumber)
         {
             amount += amountNumber;

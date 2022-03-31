@@ -6,30 +6,35 @@ using System.Threading.Tasks;
 
 namespace KryptoSteuernTool
 {
-    public struct Trade{
-        public Asset assetFrom;
-        public Asset assetTo;
-        public Wallet wallet;
+    public partial struct Trade{
+        public Asset assetFrom { get; set; }
+        public Asset assetTo { get; set; }
+        public Wallet wallet { get; set; }
     }
-    public struct Send
+    public partial struct Send
     {
-        public Asset asset;
-        public Wallet walletFrom;
-        public Wallet walletTo;
+        public Asset asset { get; set; }
+        public string walletFrom { get; set; }
+        public string walletTo { get; set; }
     }
     public partial class Transaction
     {
-        public Trade trade;
-        public Send send;
+        public Trade trade { get; set; }
+        public Send send { get; set; }
         DateTime time;
 
-        Transaction(Trade trade)
+        public Transaction(Trade trade)
         {
             this.trade = trade;
         }
-        Transaction(Send send)
+        public Transaction(Send send)
         {
             this.send = send;
+        }
+        public Transaction()
+        {
+            this.trade = new Trade();
+            this.send = new Send();
         }
     }
 }

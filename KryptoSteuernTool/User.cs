@@ -15,11 +15,13 @@ namespace KryptoSteuernTool
         public User()
         {
             wallets = new List<Wallet>();
+            transactions = new List<Transaction>();
         }
 
 
         public User(string newUsername, List<Wallet> newWallets)
         {
+            transactions = new List<Transaction>();
             wallets = newWallets;
             username = newUsername;
         }
@@ -28,6 +30,7 @@ namespace KryptoSteuernTool
         {
 
             wallets = new List<Wallet>();
+            transactions = new List<Transaction>();
             username = newUsername;
         }
 

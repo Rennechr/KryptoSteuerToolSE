@@ -82,6 +82,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTransactionsDialog.cs" />
+    <Compile Include="AddTransactionsDialog.Designer.cs">
+      <DependentUpon>AddTransactionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddWalletDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +109,9 @@
     <Compile Include="Validator.cs" />
     <Compile Include="Wallet.cs" />
     <Compile Include="WalletCalculator.cs" />
+    <EmbeddedResource Include="AddTransactionsDialog.resx">
+      <DependentUpon>AddTransactionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddWalletDialog.resx">
       <DependentUpon>AddWalletDialog.cs</DependentUpon>
     </EmbeddedResource>
