@@ -9,7 +9,7 @@ namespace KryptoSteuernTool
     public partial struct Trade{
         public Asset assetFrom { get; set; }
         public Asset assetTo { get; set; }
-        public Wallet wallet { get; set; }
+        public string wallet { get; set; }
     }
     public partial struct Send
     {

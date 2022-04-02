@@ -159,20 +159,19 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Controls.Add(this.btnWalletAdd);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(14, 66);
+            this.groupBox1.Location = new System.Drawing.Point(14, 96);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(570, 265);
+            this.groupBox1.Size = new System.Drawing.Size(570, 235);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wallets";
             // 
             // btnWalletAdd
             // 
-            this.btnWalletAdd.Location = new System.Drawing.Point(364, 26);
+            this.btnWalletAdd.Location = new System.Drawing.Point(385, 55);
             this.btnWalletAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnWalletAdd.Name = "btnWalletAdd";
             this.btnWalletAdd.Size = new System.Drawing.Size(199, 36);
@@ -208,6 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 511);
+            this.Controls.Add(this.btnWalletAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxTransactions);
             this.Controls.Add(this.groupBoxDashboard);

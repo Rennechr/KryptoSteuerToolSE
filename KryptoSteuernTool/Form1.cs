@@ -17,11 +17,6 @@ namespace KryptoSteuernTool
     public partial class Form1 : Form
     {
         public static User user { get; set; }
-
-        List<Label> walletNames = new List<Label>();
-        List<Button> walletButtons = new List<Button>();
-        List<Label> walletAmount = new List<Label>();
-        List<Label> assetName = new List<Label>();
         public Form1()
         {
             InitializeComponent();
@@ -29,18 +24,7 @@ namespace KryptoSteuernTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-           /*
-            user.deposit("Peters Binance", "XCH", 300);
 
-            user.wallets.Where(x=>x.name == "Peters Binance").First().reciveAsset("XCH", 100);
-
-            user.wallets.Where(x => x.name == "Peters Binance").First().reciveAsset("BTC", 1);
-
-            user.wallets.Where(x => x.name == "Peters Binance").First().reciveAsset("BTC", -0.5m);
-
-            user.withdrawl("Peters Binance", "XCH", 300);
-           */
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -71,23 +55,23 @@ namespace KryptoSteuernTool
 
         public void updateWalletList()
         {
+            groupBox1.Controls.Clear();
             int i = 0;
             foreach(Wallet wallet in user.wallets)
             {
                 int local_i = i;
-                walletNames.Add(new Label());
-                walletNames.Last().Text = wallet.name;
-                walletNames.Last().AutoSize = true;
-                walletNames.Last().BackColor = Color.White;
-                walletNames.Last().Location = new Point(20, 30*i+20);
-                walletButtons.Add(new Button());
-                walletButtons.Last().Text = "Show";
-                walletButtons.Last().AutoSize = true;
-                walletButtons.Last().Location = new Point(120, 30 * i + 20);
-                walletButtons.Last().Click += (sender, e) => showWallet(sender, e, local_i);
-                groupBox1.Controls.Add(walletButtons.Last());
-                groupBox1.Controls.Add(walletNames.Last());
-
+                Label lblWalletName = new Label();
+                lblWalletName.Text = wallet.name;
+                lblWalletName.AutoSize = true;
+                lblWalletName.BackColor = Color.White;
+                lblWalletName.Location = new Point(20, 30*i+20);
+                Button btnShowWallet = new Button();
+                btnShowWallet.Text = "Show";
+                btnShowWallet.AutoSize = true;
+                btnShowWallet.Location = new Point(120, 30 * i + 20);
+                btnShowWallet.Click += (sender, e) => showWallet(sender, e, local_i);
+                groupBox1.Controls.Add(btnShowWallet);
+                groupBox1.Controls.Add(lblWalletName);
                 i++;
             }
         }
@@ -97,21 +81,21 @@ namespace KryptoSteuernTool
             int count = 0;
             if(user.wallets.ElementAt(i).assets.Count() == 0)
             {
-                assetName.Add(new Label());
-                assetName.Last().Text = "Diese Wallet enthält noch keine Assets";
-                assetName.Last().AutoSize = true;
-                assetName.Last().Location = new Point(20, 30 * count + 20);
-                groupBoxTransactions.Controls.Add(assetName.Last());
+                Label lblNoAssets = new Label();
+                lblNoAssets.Text = "Diese Wallet enthält noch keine Assets";
+                lblNoAssets.AutoSize = true;
+                lblNoAssets.Location = new Point(20, 30 * count + 20);
+                groupBoxTransactions.Controls.Add(lblNoAssets);
             }
             else
             {
                 foreach (Asset asset in user.wallets.ElementAt(i).assets)
                 {
-                    assetName.Add(new Label());
-                    assetName.Last().Text = asset.kuerzel + " | " +  asset.amount.ToString();
-                    assetName.Last().AutoSize = true;
-                    assetName.Last().Location = new Point(20, 30 * count + 60);
-                    groupBoxTransactions.Controls.Add(assetName.Last());
+                    Label lblAssetName = new Label();
+                    lblAssetName.Text = asset.kuerzel + " | " +  asset.amount.ToString();
+                    lblAssetName.AutoSize = true;
+                    lblAssetName.Location = new Point(20, 30 * count + 60);
+                    groupBoxTransactions.Controls.Add(lblAssetName);
                     count++;
                 }
             }
@@ -144,7 +128,7 @@ namespace KryptoSteuernTool
 
             foreach(Transaction transaction in user.transactions)
             {
-                if (transaction.trade.wallet == wallet)
+                if (transaction.trade.wallet == wallet.name)
                 {
                     Label label = new Label();
                     label.Text = "Traded from " + transaction.trade.assetFrom.ToString() + " to " + transaction.trade.assetTo.ToString();

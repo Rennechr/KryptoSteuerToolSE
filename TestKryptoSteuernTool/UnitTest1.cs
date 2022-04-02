@@ -1,5 +1,6 @@
 using KryptoSteuernTool;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace TestKryptoSteuernTool
 {
@@ -71,6 +72,5 @@ namespace TestKryptoSteuernTool
             Assert.IsTrue(wallet.assetExists("BTC"));
             Assert.IsFalse(wallet.assetExists("DOGE"));
         }
-
     }
 }
