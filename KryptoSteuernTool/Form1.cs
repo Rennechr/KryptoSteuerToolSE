@@ -24,13 +24,15 @@ namespace KryptoSteuernTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            user = new User();
+            user.addWallet("BankAccount");
+            updateWalletList();
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
             Opener opener = new Opener();
-            user = opener.open();
+            opener.open();
             updateWalletList();
         }
 
@@ -151,9 +153,7 @@ namespace KryptoSteuernTool
                 {
                     //skip
                 }
-
             }
         }
-
     }
 }

@@ -11,7 +11,7 @@ namespace KryptoSteuernTool
 
         }
 
-        public User open()
+        public void open()
         {
             string fileContent = string.Empty;
             var filePath = string.Empty;
@@ -42,10 +42,9 @@ namespace KryptoSteuernTool
 
                     User result = JsonSerializer.Deserialize<User>(fileContent, options);
                     MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    return (User) result;
+                    Form1.user = result;
                 }
             }
-            return new User();
         }
     }
 }

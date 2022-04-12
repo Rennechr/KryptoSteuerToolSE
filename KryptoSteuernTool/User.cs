@@ -28,7 +28,6 @@ namespace KryptoSteuernTool
        
         public User(string newUsername)
         {
-
             wallets = new List<Wallet>();
             transactions = new List<Transaction>();
             username = newUsername;
