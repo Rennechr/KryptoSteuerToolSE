@@ -130,20 +130,20 @@ namespace KryptoSteuernTool
 
             foreach(Transaction transaction in user.transactions)
             {
-                if (transaction.trade.wallet == wallet.name)
+                if (transaction.trade != null && transaction.trade.wallet == wallet.name)
                 {
                     Label label = new Label();
-                    label.Text = "Traded from " + transaction.trade.assetFrom.ToString() + " to " + transaction.trade.assetTo.ToString();
+                    label.Text = "Traded from " + transaction.trade.assetFrom.ToString() + " to " + transaction.trade.assetTo.ToString()+  " at " + transaction.time.ToString();
                     label.Location = new Point(20, 30 * count + 30);
                     label.AutoSize = true;
                     groupBoxTransactions.Controls.Add(label);
 
                     count++;
                 }
-                else if (transaction.send.walletFrom == wallet.name || transaction.send.walletTo == wallet.name)
+                else if (transaction.send != null && (transaction.send.walletFrom == wallet.name || transaction.send.walletTo == wallet.name))
                 {
                     Label label = new Label();
-                    label.Text = "Send " + transaction.send.asset.amount + " " + transaction.send.asset.kuerzel + " from " + transaction.send.walletFrom.ToString() + " to " + transaction.send.walletTo.ToString();
+                    label.Text = "Send " + transaction.send.asset.amount + " " + transaction.send.asset.kuerzel + " from " + transaction.send.walletFrom.ToString() + " to " + transaction.send.walletTo.ToString() + " at " + transaction.time.ToString();
                     label.Location = new Point(20, 30 * count + 30);
                     label.AutoSize = true;
                     groupBoxTransactions.Controls.Add(label);
@@ -157,3 +157,7 @@ namespace KryptoSteuernTool
         }
     }
 }
+/*
+ * todo get prices after ts when calculation is done
+ https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=USD&ts=1600000000
+ */

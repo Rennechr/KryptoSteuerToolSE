@@ -75,8 +75,8 @@ namespace KryptoSteuernTool
             panel1.Controls.Add(lbl);
 
             ComboBox cb = new ComboBox();
-            cb.Location = new Point(20, 40);
-            cb.Width = 200;
+            cb.Location = new Point(90, 20);
+            cb.Width = 100;
             List<string> items = new List<string>();
             foreach (Wallet wallet in Form1.user.wallets)
             {
@@ -86,26 +86,15 @@ namespace KryptoSteuernTool
             cb.DataSource = items;
             panel1.Controls.Add(cb);
 
-            Label lbl2 = new Label();
-            lbl2.Text = "Coin Kuerzel";
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(20, 60);
-            panel1.Controls.Add(lbl2);
-
-            TextBox txtKuerzel = new TextBox();
-            txtKuerzel.Location = new Point(100, 60);
-            panel1.Controls.Add(txtKuerzel);
-
-
             Label lbl3 = new Label();
             lbl3.Text = "Wallet To";
             lbl3.AutoSize = true;
-            lbl3.Location = new Point(20, 80);
+            lbl3.Location = new Point(20, 50);
             panel1.Controls.Add(lbl3);
 
             ComboBox cb2 = new ComboBox();
-            cb2.Location = new Point(20, 100);
-            cb2.Width = 200;
+            cb2.Location = new Point(90, 50);
+            cb2.Width = 100;
 
             List<string> items2 = new List<string>();
             foreach (Wallet wallet in Form1.user.wallets)
@@ -118,16 +107,53 @@ namespace KryptoSteuernTool
             Label lbl4 = new Label();
             lbl4.Text = "Coin Amount";
             lbl4.AutoSize = true;
-            lbl4.Location = new Point(20, 120);
+            lbl4.Location = new Point(20, 80);
             panel1.Controls.Add(lbl4);
 
             TextBox txtAmount = new TextBox();
-            txtAmount.Location = new Point(100, 120);
+            txtAmount.Location = new Point(90, 80);
+            txtAmount.Width = 50;
             panel1.Controls.Add(txtAmount);
+
+            Label lbl2 = new Label();
+            lbl2.Text = "Coin Kuerzel";
+            lbl2.AutoSize = true;
+            lbl2.Location = new Point(150, 80);
+            panel1.Controls.Add(lbl2);
+
+            TextBox txtKuerzel = new TextBox();
+            txtKuerzel.Location = new Point(220, 80);
+            txtKuerzel.Width = 50;
+            panel1.Controls.Add(txtKuerzel);
+
+            Label lbl6 = new Label();
+            lbl6.Text = "Date";
+            lbl6.AutoSize = true;
+            lbl6.Location = new Point(20, 110);
+            panel1.Controls.Add(lbl6);
+            Label lbl7 = new Label();
+            lbl7.Text = "Time";
+            lbl7.AutoSize = true;
+            lbl7.Location = new Point(140, 110);
+            panel1.Controls.Add(lbl7);
+
+            DateTimePicker datePicker = new DateTimePicker();
+            datePicker.Format = DateTimePickerFormat.Short;
+            datePicker.Width = 100;
+            datePicker.Location = new Point(20, 130);
+            panel1.Controls.Add(datePicker);
+
+            DateTimePicker timePicker = new DateTimePicker();
+            timePicker.Format = DateTimePickerFormat.Time;
+            timePicker.ShowUpDown = true;
+            timePicker.Width = 100;
+            timePicker.Location = new Point(140, 130);
+            panel1.Controls.Add(timePicker);
+
 
             Button btnAdd = new Button();
             btnAdd.Text = "Add";
-            btnAdd.Location = new Point(20, 140);
+            btnAdd.Location = new Point(20, 160);
             panel1.Controls.Add((Button)btnAdd);
             btnAdd.Click += (sender2, e2) =>
             {
@@ -137,8 +163,8 @@ namespace KryptoSteuernTool
                 send.walletFrom = cb.Text;
                 send.walletTo = cb2.Text;
                 send.asset = new Asset(txtKuerzel.Text, Decimal.Parse(txtAmount.Text));
-
-                Form1.user.transactions.Add(new Transaction(send));
+                DateTime combinedDateTime = datePicker.Value.Date.Add(timePicker.Value.TimeOfDay);
+                Form1.user.transactions.Add(new Transaction(send, combinedDateTime));
             };
         }
         void addTrade(object sender, EventArgs e)
@@ -168,15 +194,16 @@ namespace KryptoSteuernTool
             lbl2.Location = new Point(20, 50);
             panel1.Controls.Add(lbl2);
             TextBox txtKuerzel = new TextBox();
-            txtKuerzel.Location = new Point(70, 50);
+            txtKuerzel.Location = new Point(80, 50);
+            txtKuerzel.Width = 50;
             panel1.Controls.Add(txtKuerzel);
             Label lbl3 = new Label();
             lbl3.Text = "Amount Coin";
             lbl3.AutoSize = true;
-            lbl3.Location = new Point(150, 50);
+            lbl3.Location = new Point(140, 50);
             panel1.Controls.Add(lbl3);
             TextBox txtAmount = new TextBox();
-            txtAmount.Location = new Point(190, 50);
+            txtAmount.Location = new Point(210, 50);
             panel1.Controls.Add(txtAmount);
 
             Label lbl4 = new Label();
@@ -185,32 +212,59 @@ namespace KryptoSteuernTool
             lbl4.Location = new Point(20, 80);
             panel1.Controls.Add(lbl4);
             TextBox txtKuerzel2 = new TextBox();
-            txtKuerzel2.Location = new Point(70, 80);
+            txtKuerzel2.Location = new Point(80, 80);
+            txtKuerzel2.Width = 50;
             panel1.Controls.Add(txtKuerzel2);
             Label lbl5 = new Label();
             lbl5.Text = "Amount Coin";
             lbl5.AutoSize = true;
-            lbl5.Location = new Point(150, 80);
+            lbl5.Location = new Point(140, 80);
             panel1.Controls.Add(lbl5);
             TextBox txtAmount2 = new TextBox();
-            txtAmount2.Location = new Point(190, 80);
+            txtAmount2.Location = new Point(210, 80);
             panel1.Controls.Add(txtAmount2);
+
+            Label lbl6 = new Label();
+            lbl6.Text = "Date";
+            lbl6.AutoSize = true;
+            lbl6.Location = new Point(20, 110);
+            panel1.Controls.Add(lbl6);
+            Label lbl7 = new Label();
+            lbl7.Text = "Time";
+            lbl7.AutoSize = true;
+            lbl7.Location = new Point(140, 110);
+            panel1.Controls.Add(lbl7);
+
+            DateTimePicker datePicker = new DateTimePicker();
+            datePicker.Format = DateTimePickerFormat.Short;
+            datePicker.Width = 100;
+            datePicker.Location = new Point(20, 130);
+            panel1.Controls.Add(datePicker);
+
+            DateTimePicker timePicker = new DateTimePicker();
+            timePicker.Format = DateTimePickerFormat.Time;
+            timePicker.ShowUpDown = true;
+            timePicker.Width = 100;
+            timePicker.Location = new Point(140, 130);
+            panel1.Controls.Add(timePicker);
 
             Button btnAdd = new Button();
             btnAdd.Text = "Add";
-            btnAdd.Location = new Point(20, 140);
+            btnAdd.Location = new Point(20, 160);
             panel1.Controls.Add((Button)btnAdd);
+
             btnAdd.Click += (sender2, e2) =>
             {
                 Form1.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel.Text, -Decimal.Parse(txtAmount.Text));
                 Form1.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel2.Text, Decimal.Parse(txtAmount2.Text));
 
-                Trade trade =new Trade();
+                Trade trade = new Trade();
                 trade.wallet = cb.Text;
                 trade.assetFrom = new Asset(txtKuerzel.Text, Decimal.Parse(txtAmount.Text));
                 trade.assetTo = new Asset(txtKuerzel2.Text, Decimal.Parse(txtAmount2.Text));
+                DateTime combinedDateTime = datePicker.Value.Date.Add(timePicker.Value.TimeOfDay);
 
-                Form1.user.transactions.Add(new Transaction(trade));
+                Form1.user.transactions.Add(new Transaction(trade, combinedDateTime));
                 MessageBox.Show("Successfully added Trade\n from " + txtAmount.Text + txtKuerzel.Text + " to " + txtAmount2.Text + txtKuerzel2.Text);
             };
 
@@ -328,6 +382,11 @@ namespace KryptoSteuernTool
         void loadAPI()
         {
             labelTitle.Text = "Add With API";
+        }
+
+        private void btnAbort_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

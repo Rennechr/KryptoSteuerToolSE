@@ -106,11 +106,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saver.cs" />
+    <Compile Include="Send.cs" />
+    <Compile Include="Trade.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Wallet.cs" />
-    <Compile Include="WalletCalculator.cs" />
     <EmbeddedResource Include="AddTransactionsDialog.resx">
       <DependentUpon>AddTransactionsDialog.cs</DependentUpon>
     </EmbeddedResource>

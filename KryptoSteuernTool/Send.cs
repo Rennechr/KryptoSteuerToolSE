@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace KryptoSteuernTool
 {
-    internal class WalletCalculator
+    public class Send
     {
-        public void Calculate()
-        {
-
-        }
+        public Asset asset { get; set; }
+        public string walletFrom { get; set; }
+        public string walletTo { get; set; }
     }
 }

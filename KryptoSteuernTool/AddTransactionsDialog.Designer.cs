@@ -112,6 +112,7 @@
             this.btnAbort.TabIndex = 3;
             this.btnAbort.Text = "Abort";
             this.btnAbort.UseVisualStyleBackColor = true;
+            this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
             // 
             // panel1
             // 

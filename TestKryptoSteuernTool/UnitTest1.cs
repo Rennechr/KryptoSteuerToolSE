@@ -41,6 +41,7 @@ namespace TestKryptoSteuernTool
         {
             User user = new User();
             user.addWallet("Binance");
+
             user.deposit("Binance", "BTC", (decimal)0.1);
 
             Assert.AreEqual(user.wallets.Count, 1);

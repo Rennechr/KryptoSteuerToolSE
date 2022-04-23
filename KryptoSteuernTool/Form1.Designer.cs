@@ -40,9 +40,9 @@
             this.btnAddWallet = new System.Windows.Forms.Button();
             this.groupBoxTransactions = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnWalletAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnWalletAdd = new System.Windows.Forms.Button();
             this.groupBoxDashboard.SuspendLayout();
             this.groupBoxWallets.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -169,17 +169,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wallets";
             // 
-            // btnWalletAdd
-            // 
-            this.btnWalletAdd.Location = new System.Drawing.Point(385, 55);
-            this.btnWalletAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnWalletAdd.Name = "btnWalletAdd";
-            this.btnWalletAdd.Size = new System.Drawing.Size(199, 36);
-            this.btnWalletAdd.TabIndex = 8;
-            this.btnWalletAdd.Text = "add Wallet / Exchange";
-            this.btnWalletAdd.UseVisualStyleBackColor = true;
-            this.btnWalletAdd.Click += new System.EventHandler(this.btnWalletAdd_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
@@ -201,6 +190,17 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "add Wallet / Exchange";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnWalletAdd
+            // 
+            this.btnWalletAdd.Location = new System.Drawing.Point(385, 55);
+            this.btnWalletAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWalletAdd.Name = "btnWalletAdd";
+            this.btnWalletAdd.Size = new System.Drawing.Size(199, 36);
+            this.btnWalletAdd.TabIndex = 8;
+            this.btnWalletAdd.Text = "add Wallet / Exchange";
+            this.btnWalletAdd.UseVisualStyleBackColor = true;
+            this.btnWalletAdd.Click += new System.EventHandler(this.btnWalletAdd_Click);
             // 
             // Form1
             // 
