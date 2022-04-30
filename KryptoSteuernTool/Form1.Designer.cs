@@ -1,6 +1,6 @@
 ﻿namespace KryptoSteuernTool
 {
-    partial class Form1
+    partial class MainGUI
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGUI));
             this.btnOpen = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
@@ -202,7 +202,7 @@
             this.btnWalletAdd.UseVisualStyleBackColor = true;
             this.btnWalletAdd.Click += new System.EventHandler(this.btnWalletAdd_Click);
             // 
-            // Form1
+            // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -218,7 +218,7 @@
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "MainGUI";
             this.Text = "Krypto Steuer Tool";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxDashboard.ResumeLayout(false);

@@ -14,10 +14,10 @@ using System.Text.Json;
 
 namespace KryptoSteuernTool
 {
-    public partial class Form1 : Form
+    public partial class MainGUI : Form
     {
         public static User user { get; set; }
-        public Form1()
+        public MainGUI()
         {
             InitializeComponent();
         }

@@ -46,7 +46,7 @@ namespace KryptoSteuernTool
 
                     User result = JsonSerializer.Deserialize<User>(fileContent, options);
                     MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    Form1.user = result;
+                    MainGUI.user = result;
                 }
             }
         }

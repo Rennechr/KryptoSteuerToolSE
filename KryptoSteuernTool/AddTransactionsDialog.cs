@@ -75,7 +75,7 @@ namespace KryptoSteuernTool
             cb.Location = new Point(90, 20);
             cb.Width = 100;
             List<string> items = new List<string>();
-            foreach (Wallet wallet in Form1.user.wallets)
+            foreach (Wallet wallet in MainGUI.user.wallets)
             {
                 items.Add(wallet.name);
             }
@@ -94,7 +94,7 @@ namespace KryptoSteuernTool
             cb2.Width = 100;
 
             List<string> items2 = new List<string>();
-            foreach (Wallet wallet in Form1.user.wallets)
+            foreach (Wallet wallet in MainGUI.user.wallets)
             {
                 items2.Add(wallet.name);
             }
@@ -154,14 +154,14 @@ namespace KryptoSteuernTool
             panel1.Controls.Add((Button)btnAdd);
             btnAdd.Click += (sender2, e2) =>
             {
-                Form1.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel.Text, -Decimal.Parse(txtAmount.Text));
-                Form1.user.wallets.Find(wallet => wallet.name == cb2.Text).reciveAsset(txtKuerzel.Text, Decimal.Parse(txtAmount.Text));
+                MainGUI.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel.Text, -Decimal.Parse(txtAmount.Text));
+                MainGUI.user.wallets.Find(wallet => wallet.name == cb2.Text).reciveAsset(txtKuerzel.Text, Decimal.Parse(txtAmount.Text));
                 Send send = new Send();
                 send.walletFrom = cb.Text;
                 send.walletTo = cb2.Text;
                 send.asset = new Asset(txtKuerzel.Text, Decimal.Parse(txtAmount.Text));
                 DateTime combinedDateTime = datePicker.Value.Date.Add(timePicker.Value.TimeOfDay);
-                Form1.user.transactions.Add(new Transaction(send, combinedDateTime));
+                MainGUI.user.transactions.Add(new Transaction(send, combinedDateTime));
             };
         }
         void addTrade(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace KryptoSteuernTool
             cb.Location = new Point(60, 20);
             cb.Width = 200;
             List<string> items = new List<string>();
-            foreach (Wallet wallet in Form1.user.wallets)
+            foreach (Wallet wallet in MainGUI.user.wallets)
             {
                 items.Add(wallet.name);
             }
@@ -252,8 +252,8 @@ namespace KryptoSteuernTool
 
             btnAdd.Click += (sender2, e2) =>
             {
-                Form1.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel.Text, -Decimal.Parse(txtAmount.Text));
-                Form1.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel2.Text, Decimal.Parse(txtAmount2.Text));
+                MainGUI.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel.Text, -Decimal.Parse(txtAmount.Text));
+                MainGUI.user.wallets.Find(wallet => wallet.name == cb.Text).reciveAsset(txtKuerzel2.Text, Decimal.Parse(txtAmount2.Text));
 
                 Trade trade = new Trade();
                 trade.wallet = cb.Text;
@@ -261,7 +261,7 @@ namespace KryptoSteuernTool
                 trade.assetTo = new Asset(txtKuerzel2.Text, Decimal.Parse(txtAmount2.Text));
                 DateTime combinedDateTime = datePicker.Value.Date.Add(timePicker.Value.TimeOfDay);
 
-                Form1.user.transactions.Add(new Transaction(trade, combinedDateTime));
+                MainGUI.user.transactions.Add(new Transaction(trade, combinedDateTime));
                 MessageBox.Show("Successfully added Trade\n from " + txtAmount.Text + txtKuerzel.Text + " to " + txtAmount2.Text + txtKuerzel2.Text);
             };
 

@@ -24,11 +24,11 @@ namespace KryptoSteuernTool
             string[] rules = {"required"};
             if (validator.check(rules, textBoxName))
             {
-                if (Form1.user == null)
+                if (MainGUI.user == null)
                 {
-                    Form1.user = new User();
+                    MainGUI.user = new User();
                 }
-                Form1.user.addWallet(textBoxName.Text);
+                MainGUI.user.addWallet(textBoxName.Text);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
