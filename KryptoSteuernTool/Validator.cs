@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -35,7 +36,16 @@ namespace KryptoSteuernTool
                     {
                         return false;
                     }
+
+                }
+                else
+                {
                     
+                    if(rules[it]== "" || rules[it] == null)
+                    {
+                        throw new ArgumentNullException("No argument passed To validator function at position "+ it.ToString());
+                    }
+                    throw new NotImplementedException("This rule is not implemented \n" + rules[it]);
                 }
                 it++;
             }
