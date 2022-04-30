@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace KryptoSteuernTool
 {
-    public partial class Wallet
+    public class Wallets
+    {
+        public List<Wallet> wallets { get; set; }
+    }
+    public class Wallet
     {
         public string name { get; set; }
 
@@ -51,10 +55,13 @@ namespace KryptoSteuernTool
                 assets.Where(item => item.kuerzel == assetName).First().changeAmount(amountNumber);
             }
         }
+       
 
         public bool assetExists(string assetName)
         {
             return assets.Where(item => item.kuerzel == assetName).Count() == 0 ? false : true;
         }
     }
+
+   
 }

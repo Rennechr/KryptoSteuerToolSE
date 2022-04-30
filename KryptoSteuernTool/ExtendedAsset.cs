@@ -9,7 +9,7 @@ namespace KryptoSteuernTool
     internal class ExtendedAsset : Asset
     {
         
-        public string discription;
+        public string discription { get; set; }
 
         public ExtendedAsset(string kuerzelName, decimal amountNumber, string assetDiscription) : base(kuerzelName, amountNumber)
         {
@@ -28,7 +28,10 @@ namespace KryptoSteuernTool
             amount = 0;
         }
 
-        //todo Add methods which extend asset functionality
+        public string getAssetInfo()
+        {
+            return kuerzel + " " + amount.ToString() + " " + discription;
+        }
         
     }
 }

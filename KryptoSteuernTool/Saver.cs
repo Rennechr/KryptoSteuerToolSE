@@ -5,12 +5,16 @@ using System.Windows.Forms;
 
 namespace KryptoSteuernTool
 {
-    internal class Saver
+    interface ISaveable
+    {
+        void save(User user);
+    }
+    internal class Saver : ISaveable
     {
         public Saver()
         {
         }
-        public void save(User user)
+        void ISaveable.save(User user)
         {
             Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();

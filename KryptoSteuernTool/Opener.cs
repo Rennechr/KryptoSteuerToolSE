@@ -4,7 +4,11 @@ using System.Windows.Forms;
 
 namespace KryptoSteuernTool
 {
-    internal class Opener
+    interface IOpenable
+    {
+        void open();
+    }
+    internal class Opener : IOpenable
     {
         public Opener()
         {
@@ -25,7 +29,7 @@ namespace KryptoSteuernTool
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
+                { 
                     filePath = openFileDialog.FileName;
 
                     var fileStream = openFileDialog.OpenFile();

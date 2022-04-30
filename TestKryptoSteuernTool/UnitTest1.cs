@@ -67,11 +67,20 @@ namespace TestKryptoSteuernTool
         public void TestWalletAssetExist()
         {
             Wallet wallet = new Wallet();
+
             wallet.reciveAsset("BTC");
 
             Assert.AreEqual(wallet.assets.Count, 1);
             Assert.IsTrue(wallet.assetExists("BTC"));
             Assert.IsFalse(wallet.assetExists("DOGE"));
+        }
+        [TestMethod]
+        public void checkSomething()
+        {
+            Asset asset = new Asset("BTC", 100);
+            asset.changeAmount(30);
+            Assert.AreEqual(asset.amount, 130);
+            Assert.AreEqual(asset.kuerzel, "BTC");
         }
     }
 }

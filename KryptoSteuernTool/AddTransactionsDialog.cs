@@ -60,9 +60,6 @@ namespace KryptoSteuernTool
 
             rbSend.CheckedChanged += (sender2, e2) => addSend(sender2, e2);
             rbTrade.CheckedChanged += (sender2, e2) => addTrade(sender2, e2);
-
-            
-
         }
         void addSend(object sender, EventArgs e)
         {

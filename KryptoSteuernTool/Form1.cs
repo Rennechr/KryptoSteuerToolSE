@@ -31,14 +31,14 @@ namespace KryptoSteuernTool
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            Opener opener = new Opener();
+            IOpenable opener = new Opener();
             opener.open();
             updateWalletList();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            Saver saver = new Saver();
+            ISaveable saver = new Saver();
             saver.save(user);
         }
 
